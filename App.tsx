@@ -99,18 +99,18 @@ function TransactionsScreen({ expenses, setExpenses, saveExpenses }: Transaction
               <Text style={styles.transactionAmount}>₹{item.amount.toFixed(2)}</Text>
             </View>
             <TouchableOpacity onPress={() => handleEdit(item)} style={styles.iconBtn}>
-              <MaterialIcons name="edit" size={22} color="#E3B53C" />
+              <MaterialIcons name="edit" size={22} color="#FF9500" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handleDelete(item)} style={styles.iconBtn}>
-              <MaterialIcons name="delete" size={22} color="#E33C3C" />
+              <MaterialIcons name="delete" size={22} color="#FF3B30" />
             </TouchableOpacity>
           </View>
         )}
-        ListEmptyComponent={<Text style={{ color: '#bbb', textAlign: 'center', marginTop: 32 }}>No transactions yet.</Text>}
+        ListEmptyComponent={<Text style={{ color: '#A0AEC0', textAlign: 'center', marginTop: 32 }}>No transactions yet.</Text>}
       />
       {/* Floating Add Button */}
       <TouchableOpacity style={styles.fab} onPress={handleAdd} activeOpacity={0.8}>
-        <MaterialIcons name="add" size={32} color="#fff" />
+        <MaterialIcons name="add" size={32} color="#FFFFFF" />
       </TouchableOpacity>
       {/* Edit/Add Modal */}
       <Modal
@@ -125,7 +125,7 @@ function TransactionsScreen({ expenses, setExpenses, saveExpenses }: Transaction
             <TextInput
               style={styles.input}
               placeholder="Amount"
-              placeholderTextColor="#aaa"
+              placeholderTextColor="#A0AEC0"
               keyboardType="numeric"
               value={editAmount}
               onChangeText={setEditAmount}
@@ -133,7 +133,7 @@ function TransactionsScreen({ expenses, setExpenses, saveExpenses }: Transaction
             <TextInput
               style={styles.input}
               placeholder="Category"
-              placeholderTextColor="#aaa"
+              placeholderTextColor="#A0AEC0"
               value={editCategory}
               onChangeText={setEditCategory}
             />
@@ -142,7 +142,7 @@ function TransactionsScreen({ expenses, setExpenses, saveExpenses }: Transaction
               onPress={() => setShowDatePicker(true)}
               activeOpacity={0.7}
             >
-              <Text style={{ color: editDate ? '#fff' : '#aaa', fontSize: 16 }}>
+              <Text style={{ color: editDate ? '#2D3748' : '#A0AEC0', fontSize: 16 }}>
                 {editDate ? `${editDate.getDate().toString().padStart(2, '0')}/${(editDate.getMonth()+1).toString().padStart(2, '0')}/${editDate.getFullYear()}` : 'Select date'}
               </Text>
             </TouchableOpacity>
@@ -226,28 +226,28 @@ export default function App() {
           style={[styles.navButton, screen === 'home' && styles.activeNavButton]}
           onPress={() => setScreen('home')}
         >
-          <MaterialIcons name="home" size={24} color={screen === 'home' ? '#E3B53C' : '#bbb'} />
+          <MaterialIcons name="home" size={24} color={screen === 'home' ? '#FF9500' : '#A0AEC0'} />
           <Text style={[styles.navText, screen === 'home' && styles.activeNavText]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.navButton, screen === 'analytics' && styles.activeNavButton]}
           onPress={() => setScreen('analytics')}
         >
-          <Ionicons name="stats-chart" size={24} color={screen === 'analytics' ? '#E3B53C' : '#bbb'} />
+          <Ionicons name="stats-chart" size={24} color={screen === 'analytics' ? '#FF9500' : '#A0AEC0'} />
           <Text style={[styles.navText, screen === 'analytics' && styles.activeNavText]}>Analytics</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.navButton, screen === 'transactions' && styles.activeNavButton]}
           onPress={() => setScreen('transactions')}
         >
-          <MaterialIcons name="receipt-long" size={24} color={screen === 'transactions' ? '#E3B53C' : '#bbb'} />
+          <MaterialIcons name="receipt-long" size={24} color={screen === 'transactions' ? '#FF9500' : '#A0AEC0'} />
           <Text style={[styles.navText, screen === 'transactions' && styles.activeNavText]}>Transactions</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.navButton, screen === 'ai' && styles.activeNavButton]}
           onPress={() => setScreen('ai')}
         >
-          <MaterialIcons name="smart-toy" size={24} color={screen === 'ai' ? '#E3B53C' : '#bbb'} />
+          <MaterialIcons name="smart-toy" size={24} color={screen === 'ai' ? '#FF9500' : '#A0AEC0'} />
           <Text style={[styles.navText, screen === 'ai' && styles.activeNavText]}>AI</Text>
         </TouchableOpacity>
       </View>
@@ -260,10 +260,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#23243A',
+    backgroundColor: '#EBF8FF',
     paddingVertical: 8,
     borderTopWidth: 1,
-    borderTopColor: '#222',
+    borderTopColor: '#A0AEC0',
   },
   navButton: {
     flex: 1,
@@ -271,44 +271,44 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   navText: {
-    color: '#bbb',
+    color: '#A0AEC0',
     fontSize: 12,
     fontWeight: '600',
     marginTop: 2,
   },
   activeNavButton: {
     borderBottomWidth: 2,
-    borderBottomColor: '#E3B53C',
+    borderBottomColor: '#FF9500',
   },
   activeNavText: {
-    color: '#E3B53C',
+    color: '#FF9500',
   },
   screenStub: {
     flex: 1,
-    backgroundColor: '#181A20',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
   },
   stubText: {
-    color: '#fff',
+    color: '#2D3748',
     fontSize: 22,
     fontWeight: 'bold',
   },
   transactionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#23243A',
+    backgroundColor: '#EBF8FF',
     borderRadius: 12,
     padding: 14,
     marginBottom: 12,
   },
   transactionCategory: {
-    color: '#fff',
+    color: '#2D3748',
     fontSize: 16,
     fontWeight: '600',
   },
   transactionAmount: {
-    color: '#E3B53C',
+    color: '#FF9500',
     fontSize: 15,
     marginTop: 2,
   },
@@ -323,21 +323,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: '#23243A',
+    backgroundColor: '#EBF8FF',
     borderRadius: 16,
     padding: 24,
     width: '85%',
     alignItems: 'center',
   },
   modalTitle: {
-    color: '#fff',
+    color: '#2D3748',
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
   },
   input: {
-    backgroundColor: '#181A20',
-    color: '#fff',
+    backgroundColor: '#EBF8FF',
+    color: '#2D3748',
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 10,
@@ -353,36 +353,36 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     flex: 1,
-    backgroundColor: '#E3B53C',
+    backgroundColor: '#FF9500',
     borderRadius: 8,
     paddingVertical: 10,
     marginHorizontal: 6,
     alignItems: 'center',
   },
   cancelButton: {
-    backgroundColor: '#bbb',
+    backgroundColor: '#A0AEC0',
   },
   modalButtonText: {
-    color: '#181A20',
+    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
   },
   transactionsContainer: {
     flex: 1,
-    backgroundColor: '#181A20',
+    backgroundColor: '#FFFFFF',
     position: 'relative',
   },
   transactionsHeader: {
-    backgroundColor: '#23243A',
+    backgroundColor: '#EBF8FF',
     paddingTop: 32,
     paddingBottom: 16,
     paddingHorizontal: 24,
     alignItems: 'flex-start',
     borderBottomWidth: 1,
-    borderBottomColor: '#23243A',
+    borderBottomColor: '#EBF8FF',
   },
   transactionsTitle: {
-    color: '#fff',
+    color: '#2D3748',
     fontSize: 24,
     fontWeight: 'bold',
     letterSpacing: 1.2,
@@ -394,11 +394,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#E3B53C',
+    backgroundColor: '#FF9500',
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 8,
-    shadowColor: '#E3B53C',
+    shadowColor: '#FF9500',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
